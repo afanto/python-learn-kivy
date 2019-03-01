@@ -6,6 +6,7 @@ from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.widget import Widget
 
+
 class BoxApp(App):
 
     def build(self):
@@ -74,6 +75,7 @@ class CalculatorLayout(App):
         gl.add_widget(Button(text="="))
 
         return gl
+
 
 if __name__ == "__main__":
     CalculatorLayout().run()
