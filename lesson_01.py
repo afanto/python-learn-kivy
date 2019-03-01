@@ -21,7 +21,7 @@ class MyApp(App):
                              background_color=[.32, .85, .94, 1],
                              background_normal="",
                              size_hint=(.5, .25),
-                             pos = (640 / 2 - 160, 480 / 2 - (480 * .25 / 2)),
+                             pos=(640 / 2 - 160, 480 / 2 - (480 * .25 / 2)),
                              on_press=self.btn_press))
 
         return s

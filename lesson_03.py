@@ -31,6 +31,10 @@ class CalculatorApp(App):
 
         self.update_label()
 
+    def reset_calc(self, instance):
+        self.formula = "0"
+        self.update_label()
+
     def calc_result(self, instance):
         self.lbl.text = str(eval(self.lbl.text))
         self.formula = "0"
@@ -51,7 +55,7 @@ class CalculatorApp(App):
 
         bl.add_widget(self.lbl)
 
-        gl.add_widget(Widget())
+        gl.add_widget(Button(text="C", on_press=self.reset_calc))
         gl.add_widget(Widget())
         gl.add_widget(Widget())
         gl.add_widget(Button(text="/", on_press=self.add_operator))
