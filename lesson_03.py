@@ -17,13 +17,22 @@ class CalculatorApp(App):
         self.lbl.text = self.formula
 
     def add_number(self, instance):
-        if self.formula == "0":
+        if str(instance.text) == ".":
+            for i in self.formula:
+                if i == ".":
+                    return
+        elif self.formula == "0":
             self.formula = ""
 
         self.formula += str(instance.text)
         self.update_label()
 
     def add_operator(self, instance):
+        operators = ["/", "+", "-", "*"]
+
+        for i in operators:
+            if self.formula[-1] == i:
+                return
         if str(instance.text).lower() == "x":
             self.formula += "*"
         else:
@@ -36,8 +45,18 @@ class CalculatorApp(App):
         self.update_label()
 
     def calc_result(self, instance):
-        self.lbl.text = str(eval(self.lbl.text))
-        self.formula = "0"
+        try:
+            self.lbl.text = str(eval(self.lbl.text))
+
+        except ZeroDivisionError:
+            self.lbl.text = "zero division ¯\_('-')_/¯    "
+
+        except SyntaxError:
+            self.lbl.text = "error"
+
+        finally:
+            self.formula = "0"
+
 
     def build(self):
 
